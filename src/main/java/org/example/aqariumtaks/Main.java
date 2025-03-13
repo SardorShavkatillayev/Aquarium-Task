@@ -21,14 +21,15 @@ public class Main {
         int malesCount = random.nextInt(totalFish - 1) + 1;
         int femalesCount = totalFish - malesCount;
 
-        for (int i = 0; i < malesCount; i++) {
-            aquarium.addFish(new Fish(i + 1, Gender.MALE,
-                    random.nextInt(20) + 10,
-                    random.nextInt(width), random.nextInt(height), aquarium));
-        }
 
-        for (int i = 0; i < femalesCount; i++) {
-            aquarium.addFish(new Fish(i + malesCount + 1, Gender.FEMALE,
+        Gender gender;
+        for (int i = 0; i < totalFish; i++) {
+            if (random.nextBoolean()) {
+                gender = Gender.MALE;
+            } else {
+                gender = Gender.FEMALE;
+            }
+            aquarium.addFish(new Fish(i  + 1, gender,
                     random.nextInt(20) + 10,
                     random.nextInt(width), random.nextInt(height), aquarium));
         }
